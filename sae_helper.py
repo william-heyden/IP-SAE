@@ -2,6 +2,7 @@ import numpy as np
 import argparse
 from scipy import io, spatial, linalg
 from sklearn import preprocessing
+import statistics
 from sklearn.metrics import confusion_matrix
 
 
@@ -24,42 +25,59 @@ def NormalizeFea(fea,mode):
     elif mode==1:
         norm_fea=np.zeros(fea.shape)
         for i in range(fea.shape[0]):
-
             max_=np.max(fea[i])
             min_=np.min(fea[i])
             norm_fea[i]=(fea[i]-min_)/(max_-min_)
     elif mode==2:
         nSmp,mFea = fea.shape
-
         feaNorm=np.sqrt(np.sum(fea*fea,1))
-
-
         b=np.zeros((nSmp,mFea))
         for ii in range(mFea):
             b[:,ii]=feaNorm
-
-
         norm_fea=fea/b
-
-
     return norm_fea
 
 def acc_zsl(distance_matrix, classes, test_labels, top_hit=1):
     dist = distance_matrix
     te_cl_id = classes
     Y_te = test_labels
-
     Y_hit =np.zeros((dist.shape[0],top_hit))
     for i in range(dist.shape[0]):
         I=np.argsort(dist[i])[::-1]
         Y_hit[i,:]=te_cl_id[I[0:top_hit]]
-
-
     n=0
     for i in range(dist.shape[0]):
         if Y_te[i] in Y_hit[i,:]:
             n=n+1
-
     zsl_accuracy = n/dist.shape[0]
-    #Return n/len(n)
     return zsl_accuracy
+
+def acc_gzsl(distance_matrix, classes, test_labels, trainClasses, top_hit=1):
+    dist = distance_matrix
+    te_cl_id = classes
+    Y_te = test_labels
+    tr_cl_id_all = np.concatenate([np.unique(Y_te), [trainClasses[i] for i in range(len(trainClasses)) if trainClasses[i] not in np.unique(Y_te)]])
+    HITK=top_hit
+    Y_hit5 =np. zeros((dist.shape[0],HITK))
+    tmp1=[]
+    for i in range(dist.shape[0]):
+        I=np.argsort(dist[i])[::-1]
+        Y_hit5[i,:]=tr_cl_id_all[I[0:HITK]]   
+    n1=0
+    n2=0  
+    n1_count=0
+    n2_count=0
+    for i in range(dist.shape[0]):
+        if Y_te[i] in trainClasses:
+            n1_count=n1_count+1  
+            if Y_te[i] in Y_hit5[i,:]:
+                n1=n1+1
+        else:
+            n2_count=n2_count+1         
+            if Y_te[i] in Y_hit5[i,:]:
+                n2=n2+1
+    seen_acc = n1/n1_count
+    unseen_acc = n2/n2_count
+    harm_acc = statistics.harmonic_mean([zsl_accuracy1, zsl_accuracy2])
+    
+    return seen_acc, unseen_acc, harm_acc
