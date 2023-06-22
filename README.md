@@ -5,7 +5,7 @@
 William Heyden, Habib Ullah, Muhammad Salman Siddiqui, and Fadi Al Machot
 
 ## IP-SAE
-![alt text]("https://github.com/william-heyden/IP-SAE/blob/main/figure.?raw=true")
+![Figure](figure-1.png)
 
 
 ## Requirements
