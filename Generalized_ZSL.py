@@ -21,4 +21,4 @@ W=SAE(X_tr.T,S_tr.T,lamb).T
 S_tr_gt_all=NormalizeFea(S_te_all.T,2).T
 dist = 1 - spatial.distance.cdist(X_te,S_tr_gt_all.dot(W.T),'cosine')
 
-print('Accuracy: {}'.format(acc_zsl(dist, test_cls, Y_te)*100))
+print('Accuracy: {}'.format(acc_gzsl(dist, test_cls, np.unique(Y_tr), Y_te)*100))
