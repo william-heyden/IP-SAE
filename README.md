@@ -20,3 +20,4 @@ For training and testing
 | AWA2    |
 | CUB     |
 | SUN     |
+[link to datasets](https://www.kaggle.com/datasets/pokiajh/xlsa17)
