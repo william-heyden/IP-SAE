@@ -8,7 +8,10 @@ from sklearn.metrics import confusion_matrix
 
 
 def SAE(X,S,lamb):
-
+""" The implementation of Bartels–Stewart algorithm to solve Sylvester Equation. 
+    See Github https://github.com/Lzh566566/SAE-in-python/blob/master/SAE.py
+    for more details.
+"""
     A=S.dot(S.T)
     B=lamb*(X.dot(X.T))
     C=(1+lamb)*(S.dot(X.T))
@@ -38,6 +41,8 @@ def NormalizeFea(fea,mode):
     return norm_fea
 
 def acc_zsl(distance_matrix, classes, test_labels, top_hit=1):
+""" Accuracy measurments under the conventional setting
+"""
     dist = distance_matrix
     te_cl_id = classes
     Y_te = test_labels
@@ -53,6 +58,9 @@ def acc_zsl(distance_matrix, classes, test_labels, top_hit=1):
     return zsl_accuracy
 
 def acc_gzsl(distance_matrix, classes, test_labels, trainClasses, top_hit=1):
+""" Accuracy measurments under the generalised setting. 20 % of the train data is
+    included during testing.
+"""
     dist = distance_matrix
     te_cl_id = classes
     Y_te = test_labels
