@@ -8,10 +8,10 @@ from sklearn.metrics import confusion_matrix
 
 
 def SAE(X,S,lamb):
-""" The implementation of Bartels–Stewart algorithm to solve Sylvester Equation. 
+    """ The implementation of Bartels–Stewart algorithm to solve Sylvester Equation. 
     See Github https://github.com/Lzh566566/SAE-in-python/blob/master/SAE.py
     for more details.
-"""
+    """
     A=S.dot(S.T)
     B=lamb*(X.dot(X.T))
     C=(1+lamb)*(S.dot(X.T))
@@ -41,8 +41,8 @@ def NormalizeFea(fea,mode):
     return norm_fea
 
 def acc_zsl(distance_matrix, classes, test_labels, top_hit=1):
-""" Accuracy measurments under the conventional setting
-"""
+    """ Accuracy measurments under the conventional setting
+    """
     dist = distance_matrix
     te_cl_id = classes
     Y_te = test_labels
@@ -57,14 +57,13 @@ def acc_zsl(distance_matrix, classes, test_labels, top_hit=1):
     zsl_accuracy = n/dist.shape[0]
     return zsl_accuracy
 
-def acc_gzsl(distance_matrix, classes, test_labels, trainClasses, top_hit=1):
-""" Accuracy measurments under the generalised setting. 20 % of the train data is
+def acc_gzsl(distance_matrix, Yte, Ytr, top_hit=1):
+    """ Accuracy measurments under the generalised setting. 20 % of the train data is
     included during testing.
-"""
+    """
     dist = distance_matrix
-    te_cl_id = classes
-    Y_te = test_labels
-    tr_cl_id_all = np.concatenate([np.unique(Y_te), [trainClasses[i] for i in range(len(trainClasses)) if trainClasses[i] not in np.unique(Y_te)]])
+    trainClasses = np.unique(Ytr)
+    tr_cl_id_all = np.concatenate([np.unique(Yte), [Ytr[i] for i in range(len(Ytr)) if Ytr[i] not in np.unique(Yte)]])
     HITK=top_hit
     Y_hit5 =np. zeros((dist.shape[0],HITK))
     tmp1=[]
@@ -76,13 +75,13 @@ def acc_gzsl(distance_matrix, classes, test_labels, trainClasses, top_hit=1):
     n1_count=0
     n2_count=0
     for i in range(dist.shape[0]):
-        if Y_te[i] in trainClasses:
+        if Yte[i] in trainClasses:
             n1_count=n1_count+1  
-            if Y_te[i] in Y_hit5[i,:]:
+            if Yte[i] in Y_hit5[i,:]:
                 n1=n1+1
         else:
             n2_count=n2_count+1         
-            if Y_te[i] in Y_hit5[i,:]:
+            if Yte[i] in Y_hit5[i,:]:
                 n2=n2+1
     seen_acc = n1/n1_count
     unseen_acc = n2/n2_count
