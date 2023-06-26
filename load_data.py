@@ -13,13 +13,13 @@ from scipy import io
 from NormFea import NormalizeFea
 
 def cub(norm_data=True, int_proj=False):
-"""
+    """
     #X_tr: train features [8821x2248]
     #X_te: test features [2967x2248]
     #S_te_pro: test semantics [50x20]
     #Y_te: test labels (indx) [2967x1]
     #te_cl_id: test labels (unique) [50x1]
-"""
+    """
     
     a =    [1, 4, 6, 7, 10, 14, 15, 20, 21, 23, 25, 29, 30, 35, 36, 38, 40, 44, 45, 50, 51, 53, 54, 56, 57, 59, 63, 64, 69, 70, 72, 75, 80, 84, 90, 91, \
         93, 99, 101, 106, 110, 111, 116, 117, 119, 125, 126, 131, 132, 134, 145, 149, 151, 152, 153, 157, 158, 163, 164, 168, 172, 178, 179, 181, \
@@ -128,17 +128,17 @@ def cub(norm_data=True, int_proj=False):
         S_te_pro=NormalizeFea(S_te_pro.T,2).T
 
     
-    return X_tr, X_te, S_tr, S_te_pro, Y_te, te_cl_id, trainDataLabels, testDataAttrs
+    return X_tr, X_te, S_tr, S_te_pro, Y_te, te_cl_id, trainDataLabels, testDataAttrs, att
 
 #%% AWA2
 def awa2(norm_data=True, int_proj=False):
-"""
+    """
     #X_tr: train features [8821x2248]
     #X_te: test features [2967x2248]
     #S_te_pro: test semantics [50x20]
     #Y_te: test labels (indx) [2967x1]
     #te_cl_id: test labels (unique) [50x1]
-"""
+    """
     
     res101 = io.loadmat('./data/AWA2/res101.mat')
     att_splits=io.loadmat('./data/AWA2/att_splits.mat')
@@ -157,21 +157,16 @@ def awa2(norm_data=True, int_proj=False):
     test_labels_unseen = np.unique(labels_test)
     
     train_labels_seen = np.array([x-1 for x in train_labels_seen])
-    
     val_labels_unseen= np.array([x-1 for x in val_labels_unseen])
-    
     test_labels_unseen = np.array([x-1 for x in test_labels_unseen])
-     
     i=0
     for labels in train_labels_seen:
       labels_train[labels_train == labels] = i    
       i+=1
-     
     j=0
     for labels in val_labels_unseen:
       labels_val[labels_val == labels] = j
       j+=1
-     
     k=0
     for labels in test_labels_unseen:
       labels_test[labels_test == labels] = k
@@ -179,7 +174,6 @@ def awa2(norm_data=True, int_proj=False):
      
     sig = att_splits['att']
     test_sig = sig[:, test_labels_unseen]
-    
     testClasses = test_labels_unseen
     trainClasses =  np.concatenate([train_labels_seen , val_labels_unseen], axis=0)
     
@@ -192,13 +186,11 @@ def awa2(norm_data=True, int_proj=False):
     Y =Y.astype(np.int32).transpose()
     att =  att_splits['att']
     att=np.transpose(att)
-        
     noExs = X.shape[0]
     
     trainDataX = []
     trainDataLabels = []
     trainDataAttrs = []
-    
     testDataX = []
     testDataLabels = []
     testDataAttrs = []
@@ -241,18 +233,18 @@ def awa2(norm_data=True, int_proj=False):
     if norm_data:
         S_te_pro=NormalizeFea(S_te_pro.T,2).T
 
-    return X_tr, X_te, S_tr, S_te_pro, Y_te, te_cl_id, trainDataLabels, testDataAttrs
+    return X_tr, X_te, S_tr, S_te_pro, Y_te, te_cl_id, trainDataLabels, testDataAttrs, att
 
 
 #%% SUN
 def sun(norm_data=True, int_proj=False):
-"""
+    """
     #X_tr: train features [8821x2248]
     #X_te: test features [2967x2248]
     #S_te_pro: test semantics [50x20]
     #Y_te: test labels (indx) [2967x1]
     #te_cl_id: test labels (unique) [50x1]
-"""
+    """
     res101 = io.loadmat('./data/SUN/res101.mat')
     att_splits=io.loadmat('./data/SUN/att_splits.mat')
      
@@ -270,21 +262,17 @@ def sun(norm_data=True, int_proj=False):
     test_labels_unseen = np.unique(labels_test)
     
     train_labels_seen = np.array([x-1 for x in train_labels_seen])
-    
     val_labels_unseen= np.array([x-1 for x in val_labels_unseen])
-    
     test_labels_unseen = np.array([x-1 for x in test_labels_unseen])
      
     i=0
     for labels in train_labels_seen:
       labels_train[labels_train == labels] = i    
       i+=1
-     
     j=0
     for labels in val_labels_unseen:
       labels_val[labels_val == labels] = j
       j+=1
-     
     k=0
     for labels in test_labels_unseen:
       labels_test[labels_test == labels] = k
@@ -292,7 +280,6 @@ def sun(norm_data=True, int_proj=False):
      
     sig = att_splits['att']
     test_sig = sig[:, test_labels_unseen]
-    
     testClasses = test_labels_unseen
     trainClasses =  np.concatenate([train_labels_seen , val_labels_unseen], axis=0)
     
@@ -304,14 +291,12 @@ def sun(norm_data=True, int_proj=False):
     Y = np.array([x-1 for x in Y_temp])
     Y =Y.astype(np.int32).transpose()
     att =  att_splits['att']
-    att=np.transpose(att)
-        
+    att=np.transpose(att)  
     noExs = X.shape[0]
     
     trainDataX = []
     trainDataLabels = []
     trainDataAttrs = []
-    
     testDataX = []
     testDataLabels = []
     testDataAttrs = []
@@ -353,7 +338,7 @@ def sun(norm_data=True, int_proj=False):
     if norm_data:
         S_te_pro=NormalizeFea(S_te_pro.T,2).T
 
-    return X_tr, X_te, S_tr, S_te_pro, Y_te, te_cl_id, trainDataLabels, testDataAttrs
+    return X_tr, X_te, S_tr, S_te_pro, Y_te, te_cl_id, trainDataLabels, testDataAttrs, att
 
 
 
@@ -376,30 +361,25 @@ def awa1(norm_data=True, int_proj=False):
     val_labels_unseen = np.unique(labels_val)
     test_labels_unseen = np.unique(labels_test)
     
-    train_labels_seen = np.array([x-1 for x in train_labels_seen])
-    
+    train_labels_seen = np.array([x-1 for x in train_labels_seen]) 
     val_labels_unseen= np.array([x-1 for x in val_labels_unseen])
-    
     test_labels_unseen = np.array([x-1 for x in test_labels_unseen])
      
     i=0
     for labels in train_labels_seen:
       labels_train[labels_train == labels] = i    
-      i+=1
-     
+      i+=1  
     j=0
     for labels in val_labels_unseen:
       labels_val[labels_val == labels] = j
-      j+=1
-     
+      j+=1   
     k=0
     for labels in test_labels_unseen:
       labels_test[labels_test == labels] = k
       k+=1
      
     sig = att_splits['att']
-    test_sig = sig[:, test_labels_unseen]
-    
+    test_sig = sig[:, test_labels_unseen] 
     testClasses = test_labels_unseen
     trainClasses =  np.concatenate([train_labels_seen , val_labels_unseen], axis=0)
     
@@ -411,14 +391,12 @@ def awa1(norm_data=True, int_proj=False):
     Y = np.array([x-1 for x in Y_temp])
     Y =Y.astype(np.int32).transpose()
     att =  att_splits['att']
-    att=np.transpose(att)
-        
+    att=np.transpose(att)     
     noExs = X.shape[0]
     
     trainDataX = []
     trainDataLabels = []
     trainDataAttrs = []
-    
     testDataX = []
     testDataLabels = []
     testDataAttrs = []
@@ -461,7 +439,7 @@ def awa1(norm_data=True, int_proj=False):
     if norm_data:
         S_te_pro=NormalizeFea(S_te_pro.T,2).T
 
-    return X_tr, X_te, S_tr, S_te_pro, Y_te, te_cl_id, trainDataLabels, testDataAttrs
+    return X_tr, X_te, S_tr, S_te_pro, Y_te, te_cl_id, trainDataLabels, testDataAttrs, att
 
 #%% Accuracy
 def acc_zsl(distance_matrix, classes, test_labels, top_hit=1):
