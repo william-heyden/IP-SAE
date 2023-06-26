@@ -6,7 +6,7 @@ from sae_helper import SAE, acc_zsl, NormalizeFae
 
 
 # Load data
-X_tr, X_te, S_tr, S_te, Y_te, test_cls, Y_tr, S_te_all = ld.cub(int_proj=True)
+X_tr, X_te, S_tr, S_te, Y_te, test_cls, Y_tr, S_te_all, _ = ld.cub(int_proj=True)
 
 # Solve for W
 lamb  = 500000;
