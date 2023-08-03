@@ -57,19 +57,19 @@ def acc_zsl(distance_matrix, classes, test_labels, top_hit=1):
     zsl_accuracy = n/dist.shape[0]
     return zsl_accuracy
 
-def acc_gzsl(distance_matrix, Yte, Ytr, top_hit=1):
+def acc_gzsl(distance_matrix, Yte, Ytr):
     """ Accuracy measurments under the generalised setting. 20 % of the train data is
     included during testing.
     """
     dist = distance_matrix
+    top_hit = 1
     trainClasses = np.unique(Ytr)
     tr_cl_id_all = np.concatenate([np.unique(Yte), [Ytr[i] for i in range(len(Ytr)) if Ytr[i] not in np.unique(Yte)]])
-    HITK=top_hit
-    Y_hit5 =np. zeros((dist.shape[0],HITK))
+    Y_hit5 = np.zeros((dist.shape[0], top_hit))
     tmp1=[]
     for i in range(dist.shape[0]):
         I=np.argsort(dist[i])[::-1]
-        Y_hit5[i,:]=tr_cl_id_all[I[0:HITK]]   
+        Y_hit5[i,:]=tr_cl_id_all[I[0:top_hit]]   
     n1=0
     n2=0  
     n1_count=0
@@ -85,6 +85,6 @@ def acc_gzsl(distance_matrix, Yte, Ytr, top_hit=1):
                 n2=n2+1
     seen_acc = n1/n1_count
     unseen_acc = n2/n2_count
-    harm_acc = statistics.harmonic_mean([zsl_accuracy1, zsl_accuracy2])
+    harm_acc = statistics.harmonic_mean([seen_acc, unseen_acc])
     
     return seen_acc, unseen_acc, harm_acc

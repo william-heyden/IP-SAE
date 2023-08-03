@@ -8,9 +8,10 @@ Created on Wed Feb  8 14:26:45 2023
 #TODO
 #SNIPS data set for ZSL NLP?
 
+import os
 import numpy as np
 from scipy import io
-from NormFea import NormalizeFea
+from sae_helper import NormalizeFea
 
 def cub(norm_data=True, int_proj=False):
     """
@@ -26,8 +27,8 @@ def cub(norm_data=True, int_proj=False):
         183, 187, 188, 193, 194, 196, 198, 202, 203, 208, 209, 211, 212, 213, 218, 220, 221, 225, 235, 236, 238, 239, 240, 242, 243, 244, 249, 253, \
         254, 259, 260, 262, 268, 274, 277, 283, 289, 292, 293, 294, 298, 299, 304, 305, 308, 309, 310, 311]
         
-    res101 = io.loadmat('/data/CUB/res101.mat')
-    att_splits=io.loadmat('./data/CUB/att_splits.mat')
+    res101 = io.loadmat(os.path.expanduser('~') + '/data/CUB/res101.mat')
+    att_splits=io.loadmat(os.path.expanduser('~') + '/data/CUB/att_splits.mat')
      
     train_loc = 'train_loc'
     val_loc = 'val_loc'
@@ -140,8 +141,8 @@ def awa2(norm_data=True, int_proj=False):
     #te_cl_id: test labels (unique) [50x1]
     """
     
-    res101 = io.loadmat('./data/AWA2/res101.mat')
-    att_splits=io.loadmat('./data/AWA2/att_splits.mat')
+    res101 = io.loadmat(os.path.expanduser('~') + '/data/AWA2/res101.mat')
+    att_splits=io.loadmat(os.path.expanduser('~') + '/data/AWA2/att_splits.mat')
      
     train_loc = 'train_loc'
     val_loc = 'val_loc'
@@ -245,8 +246,8 @@ def sun(norm_data=True, int_proj=False):
     #Y_te: test labels (indx) [2967x1]
     #te_cl_id: test labels (unique) [50x1]
     """
-    res101 = io.loadmat('./data/SUN/res101.mat')
-    att_splits=io.loadmat('./data/SUN/att_splits.mat')
+    res101 = io.loadmat(os.path.expanduser('~') + '/data/SUN/res101.mat')
+    att_splits=io.loadmat(os.path.expanduser('~') + '/data/SUN/att_splits.mat')
      
     train_loc = 'train_loc'
     val_loc = 'val_loc'
@@ -345,8 +346,8 @@ def sun(norm_data=True, int_proj=False):
 #%% AWA1
 def awa1(norm_data=True, int_proj=False):
     
-    res101 = io.loadmat('./data/AWA1/res101.mat')
-    att_splits=io.loadmat('./data/AWA1/att_splits.mat')
+    res101 = io.loadmat(os.path.expanduser('~') + '/data/AWA1/res101.mat')
+    att_splits=io.loadmat(os.path.expanduser('~') + '/data/AWA1/att_splits.mat')
      
     train_loc = 'train_loc'
     val_loc = 'val_loc'
