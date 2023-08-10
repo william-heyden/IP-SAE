@@ -5,7 +5,14 @@ from sklearn import preprocessing
 import statistics
 from sklearn.metrics import confusion_matrix
 
-#Test
+# Utilisation function for IP-SAE
+# SAE for calculating W using Bertels-Stewart algorithim to solve Sylvester Equation
+# Normalization for features
+
+# Accuracy calculation for conventional- (acc_zsl) and joint- (acc_gszl) setting
+# Both assuming transductive learning, i.e. semantic information for unseen examples are available at testing time
+# Returns classification accuracy of seen examples, unseen examples, and the harmonic mean between. 
+# See paper for details of accuracy calculation
 
 def SAE(X,S,lamb):
     """ The implementation of Bartels–Stewart algorithm to solve Sylvester Equation. 
