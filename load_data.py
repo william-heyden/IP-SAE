@@ -124,7 +124,9 @@ def cub(norm_data=True, int_proj=False):
     Y_te=testDataLabels
     te_cl_id=np.unique(testDataLabels)
     if int_proj:
+        #ones_att = np.zeros(testDataAttrs.shape)
         X_te =  np.concatenate([X_te , testDataAttrs], axis=1)
+        #X_te =  np.concatenate([X_te , ones_att], axis=1)
     if norm_data:
         S_te_pro=NormalizeFea(S_te_pro.T,2).T
 
