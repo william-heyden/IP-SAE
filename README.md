@@ -13,7 +13,7 @@ Zero-shot Learning (ZSL) classification categorizes or predicts classes (labels)
 This repository contains a Python application that launches a graphical user interface (GUI) for the IP-SAE method.
 
 ## Project Structure
-
+```
 .
 ├── main.py                 # Entry point – this is the file you run
 ├── requirements.txt        # External Python dependencies
@@ -23,6 +23,8 @@ This repository contains a Python application that launches a graphical user int
 ├── sae_helper.py           # Helper functions, including Sylvester solver.
 ├── figures.py              # Visualizations
 └── load_data.py            # Loading and preperation of the data.
+```
+
 
 ## Requirements
 For training and testing
@@ -39,7 +41,7 @@ Follow the steps below to run the application on your computer.
 ```bash
 git clone https://github.com/william-heyden/IP-SAE.git
 cd IP-SAE
-
+```
 **Option B – Download as ZIP**
 	1.	Click the Code button on this page
 	2.	Select Download ZIP
@@ -49,11 +51,11 @@ cd IP-SAE
 ### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
-
+```
 ### 3. Run the Application
 ```bash
 python main.py
-
+```
 ## Datasets
 | **Dataset** |
 | AWA2    |
