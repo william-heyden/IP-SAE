@@ -14,7 +14,6 @@ This repository contains a Python application that launches a graphical user int
 
 ## Project Structure
 
-```text
 .
 ├── main.py                 # Entry point – this is the file you run
 ├── requirements.txt        # External Python dependencies
