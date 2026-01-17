@@ -40,7 +40,7 @@ This section provides a high-level overview of how the project is organised. Eac
 ### :desktop_computer: Requirements
 For training and testing
 * Python 3.10+
-* Tkinter
+* Tkinter 8.5+
 
 ---
 ## How to run the App
