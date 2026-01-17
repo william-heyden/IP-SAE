@@ -10,9 +10,11 @@ Zero-shot Learning (ZSL) classification categorizes or predicts classes (labels)
 <img src="figure-1.png" alt="high level description of the IP-SAE method." width="300"/>
 
 ## :test_tube: IP-SAE Tutorial
-This repository contains a Python application that launches a graphical user interface (GUI) for the IP-SAE method.
+Before starting the application, the required datasets must be downloaded separately. The code in this repository does not automatically download data. 
 
-## :test_tube: Project Structure
+Please follow the instructions in the [Dataset](#datasets) section below to download the datasets and place them in the expected directory structure before running `main.py`.
+
+## :file_folder: Project Structure
 ```
 .
 ├── main.py                 # Entry point – this is the file you run
@@ -26,7 +28,7 @@ This repository contains a Python application that launches a graphical user int
 ```
 
 
-## Requirements
+## :desktop_computer: Requirements
 For training and testing
 * Python 3.10+
 * Tkinter
