@@ -17,7 +17,7 @@ Before starting the application, the required datasets must be downloaded separa
 
 Please follow the instructions in the [Dataset](#datasets) section below to download the datasets and place them in the expected directory structure before running `main.py`.
 
-## :file_folder: Project Structure
+### :file_folder: Project Structure
 ```
 .
 ├── main.py                 # Entry point – this is the file you run
@@ -31,13 +31,14 @@ Please follow the instructions in the [Dataset](#datasets) section below to down
 ```
 
 
-## :desktop_computer: Requirements
+### :desktop_computer: Requirements
 For training and testing
 * Python 3.10+
 * Tkinter
 
-## How to run the App
 ---
+## How to run the App
+
 ### 1. Get the Project Files
 
 **Option A – Using Git**
