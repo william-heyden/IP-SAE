@@ -1,7 +1,7 @@
 # IP-SAE for Zero-Shot Learning
-[![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)]
-[![Numpy](https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white)]
-[![SciPy](https://img.shields.io/badge/SciPy-654FF0?style=for-the-badge&logo=SciPy&logoColor=white)]
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/numpy)
+![Numpy](https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-654FF0?style=for-the-badge&logo=SciPy&logoColor=white)
 
 This repository provides an accessible, hands-on implementation of the ideas presented in the paper [An Integral Projection-based SAE](https://arxiv.org/pdf/2306.14628) for zero-shot image classification. The goal of this project is to bridge the gap between research and practice by offering a simplified, runnable Python implementation using [tkinter](https://docs.python.org/3/library/tkinter.html#) that allows users to experiment with the core concepts of the paper locally, without requiring deep machine-learning or systems knowledge.
 
