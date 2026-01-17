@@ -1,6 +1,10 @@
 # IP-SAE for Zero-Shot Learning
 This repository provides an accessible, hands-on implementation of the ideas presented in the paper [An Integral Projection-based SAE](https://arxiv.org/pdf/2306.14628) for zero-shot image classification. The goal of this project is to bridge the gap between research and practice by offering a simplified, runnable Python implementation that allows users to experiment with the core concepts of the paper locally, without requiring deep machine-learning or systems knowledge.
 
+## Tutorial
+
+> **[Get started with the tutorial!](#how-to-run-the-app)**
+
 #### Paper Abstract
 _By: William Heyden, Habib Ullah, Muhammad Salman Siddiqui, and Fadi Al Machot_
 
@@ -30,7 +34,6 @@ For training and testing
 * Tkinter
 
 ## How to run the App
-Follow the steps below to run the application on your computer.
 ---
 ### 1. Get the Project Files
 
@@ -41,10 +44,10 @@ git clone https://github.com/william-heyden/IP-SAE.git
 cd IP-SAE
 ```
 **Option B – Download as ZIP**
-	1.	Click the Code button on this page
-	2.	Select Download ZIP
-	3.	Extract the folder
-	4.	Open a terminal (or command prompt) inside the extracted folder
+1. Click the Code button on this page
+2. Select Download ZIP
+3. Extract the folder
+4. Open a terminal (or command prompt) inside the extracted folder
 
 ### 2. Install Dependencies
 ```bash
