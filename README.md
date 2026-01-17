@@ -22,6 +22,7 @@ Before starting the application, the required datasets must be downloaded separa
 Please follow the instructions in the [Dataset](#datasets) section below to download the datasets and place them in the expected directory structure before running `main.py`.
 
 ### :file_folder: Project Structure
+This section provides a high-level overview of how the project is organised. Each file is self-sufficent. The experiments are stored in the >_*ZSL.py_ files.
 ```
 .
 ├── main.py                 # Entry point – this is the file you run
@@ -29,6 +30,7 @@ Please follow the instructions in the [Dataset](#datasets) section below to down
 |
 ├── Conventional_ZSL.py     # Example for conventional zero-shot learning setting
 ├── Generalized_ZSL.py      # Example for generalized zero-shot learning setting
+|
 ├── sae_helper.py           # Helper functions, including Sylvester solver.
 ├── figures.py              # Visualizations
 └── load_data.py            # Loading and preperation of the data.
