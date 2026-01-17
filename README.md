@@ -22,7 +22,7 @@ Before starting the application, the required datasets must be downloaded separa
 Please follow the instructions in the [Dataset](#datasets) section below to download the datasets and place them in the expected directory structure before running `main.py`.
 
 ### :file_folder: Project Structure
-This section provides a high-level overview of how the project is organised. Each file is self-sufficent. The experiments are stored in the > _*ZSL.py_ files.
+This section provides a high-level overview of how the project is organised. Each file is self-sufficent. The experiments are stored in the [Conventional_ZSL.py](./Conventional_ZSL.py) and [Generalized.py](./Generalized_ZSL.py) files. The others are helper files.
 ```
 .
 ├── main.py                 # Entry point – this is the file you run
