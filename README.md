@@ -68,7 +68,6 @@ pip install -r requirements.txt
 python main.py
 ```
 ## Datasets
-| **Dataset** |
 To evaluate zero-shot learning performance, we use three widely adopted benchmark datasets from the literature. All datasets are publicly available and consist of image-level visual features extracted using a large-scale vision model, along with class-wise semantic attribute annotations and categorical class labels.
 
 - :elephant: Animals With Attributes 2 ([AWA2](https://cvml.ista.ac.at/AwA2/)) - consists of 37322 images of 50 animals classes with pre-extracted feature representations for each image. The dataset is accompanied by 85 numeric attribute values for each class. Using the shared attributes, it is possible to transfer information between different classes.
@@ -76,4 +75,5 @@ To evaluate zero-shot learning performance, we use three widely adopted benchmar
 - :national_park: Scene UNderstanding ([SUN](https://3dvision.princeton.edu/projects/2010/SUN/) - consists of 14140 images of 717 scene categories. Each scene is [annotated](https://cs.brown.edu/~gmpatter/sunattributes.html) with 102 descriptive attributes.
 
 
-> **[link to datasets](https://www.kaggle.com/datasets/pokiajh/xlsa17)**
+> **[Link to datasets](https://www.kaggle.com/datasets/pokiajh/xlsa17)**
+The datasets are conveniently available through the Kaggle project [xlsa17](https://www.kaggle.com/datasets/pokiajh/xlsa17/data). Downloading the provided ZIP file gives access to all required image features, semantic attribute annotations, and class labels, organized using the standard benchmark split between seen and unseen classes.
