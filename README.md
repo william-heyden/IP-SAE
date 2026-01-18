@@ -69,7 +69,11 @@ python main.py
 ```
 ## Datasets
 | **Dataset** |
+To evaluate zero-shot learning performance, we use three widely adopted benchmark datasets from the literature. All datasets are publicly available and consist of image-level visual features extracted using a large-scale vision model, along with class-wise semantic attribute annotations and categorical class labels.
+
 - :elephant: Animals With Attributes 2 ([AWA2](https://cvml.ista.ac.at/AwA2/)) - consists of 37322 images of 50 animals classes with pre-extracted feature representations for each image. The dataset is accompanied by 85 numeric attribute values for each class. Using the shared attributes, it is possible to transfer information between different classes.
 - :owl: Caltech-UCSD Birds ([CUB](https://www.vision.caltech.edu/datasets/cub_200_2011/)) - consists of 11788 images of 200 bird species with pre-extracted feature representations for each image. Images and annotations were annotated by multiple users of Mechanical Turk.
-- :national_park: | SUN     |
-[link to datasets](https://www.kaggle.com/datasets/pokiajh/xlsa17)
+- :national_park: Scene UNderstanding ([SUN](https://3dvision.princeton.edu/projects/2010/SUN/) - consists of 14140 images of 717 scene categories. Each scene is [annotated](https://cs.brown.edu/~gmpatter/sunattributes.html) with 102 descriptive attributes.
+
+
+> **[link to datasets](https://www.kaggle.com/datasets/pokiajh/xlsa17)**
