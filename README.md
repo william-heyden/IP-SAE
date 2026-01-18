@@ -76,4 +76,5 @@ To evaluate zero-shot learning performance, we use three widely adopted benchmar
 
 
 > **[Link to datasets](https://www.kaggle.com/datasets/pokiajh/xlsa17)**
+
 The datasets are conveniently available through the Kaggle project [xlsa17](https://www.kaggle.com/datasets/pokiajh/xlsa17/data). Downloading the provided ZIP file gives access to all required image features, semantic attribute annotations, and class labels, organized using the standard benchmark split between seen and unseen classes.
