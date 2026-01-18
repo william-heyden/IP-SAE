@@ -17,6 +17,10 @@ Zero-shot Learning (ZSL) classification categorizes or predicts classes (labels)
 <img src="figure-1.png" alt="high level description of the IP-SAE method." width="300"/>
 
 ## :test_tube: IP-SAE Tutorial
+This tutorial provides a runnable Python example for evaluating our zero-shot learning method on standard benchmark datasets. The implementation demonstrates how we can train a ZSL model to recognize previously unseen classes by leveraging semantic information, without requiring labeled training samples for those classes.
+
+The method learns a weight matrix that projects image feature vectors into the semantic space by solving a Sylvester equation. During inference, unseen samples are mapped into this semantic space and classified using a simple nearest-neighbour search against semantic class prototypes.
+
 Before starting the application, the required datasets must be downloaded separately. The code in this repository does not automatically download data. 
 
 Please follow the instructions in the [Dataset](#datasets) section below to download the datasets and place them in the expected directory structure before running `main.py`.
